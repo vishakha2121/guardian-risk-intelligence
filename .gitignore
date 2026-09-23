@@ -4289,19 +4289,3 @@ powershell
 # ---------- CREATE FOLDERS ----------
 mkdir backend, backend\app, backend\app\models, backend\app\schemas, backend\app\routes, backend\app\services, backend\app\ml, backend\app\ml\datasets, backend\app\graph, backend\app\ai, backend\app\core, backend\app\websocket, backend\app\utils, backend\app\static, backend\tests, backend\migrations, backend\migrations\versions -Force
 
-mkdir frontend, frontend\src, frontend\src\components, frontend\src\components\layout, frontend\src\components\ui, frontend\src\components\charts, frontend\src\components\risk, frontend\src\components\graph, frontend\src\components\mitigation, frontend\src\components\alerts, frontend\src\components\common, frontend\src\pages, frontend\src\hooks, frontend\src\services, frontend\src\context, frontend\src\store, frontend\src\utils, frontend\src\styles, frontend\src\routes, frontend\src\assets, frontend\src\assets\icons, frontend\src\assets\images, frontend\src\assets\fonts, frontend\public -Force
-
-mkdir database, database\migrations, docs, docs\screenshots, docs\diagrams, scripts, notebooks, .github, .github\workflows -Force
-
-# ---------- CREATE ROOT FILES ----------
-New-Item .gitignore, .env.example, LICENSE, backend\requirements.txt, backend\.env.example, backend\Dockerfile, database\schema.sql, database\seed.sql, docs\architecture.md, docs\api_reference.md, docs\setup_guide.md -ItemType File -Force
-
-# ---------- CREATE .gitkeep FILES ----------
-Get-ChildItem -Recurse -Directory | ForEach-Object {
-    $gitkeep = Join-Path $_.FullName ".gitkeep"
-    if (-not (Get-ChildItem $_.FullName -File)) {
-        New-Item $gitkeep -ItemType File -Force | Out-Null
-    }
-}
-
-# ---------- SHOW STRUCTURE ----------
